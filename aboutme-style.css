@@ -1,0 +1,238 @@
+/* ------------------- GLOBAL ------------------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter Tight', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #e0e0e0 0%, #7a7a7a 100%);
+  overflow-x: hidden;
+  color: #222;
+  line-height: 1.6;
+  position: relative;
+}
+
+/* ------------------- POLKA DOTS ------------------- */
+.polka-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.polka {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  width: 400px;
+  height: 400px;
+}
+
+/* ------------------- CENTERED LARGE HEADER ------------------- */
+.center-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.animated-header {
+  font-size: clamp(5rem, 12vw, 10rem);
+  font-weight: 800;
+  color: #111;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: slideFadeIn 1.5s forwards;
+}
+
+@keyframes slideFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ------------------- HEADER ------------------- */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 3rem;
+  position: relative;
+  z-index: 1;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(5px);
+}
+
+.header h2 {
+  font-size: 2.5rem;
+  color: #111;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 1s ease;
+}
+
+.header nav a {
+  margin-left: 1.5rem;
+  color: #111;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.header nav a:hover {
+  color: #555;
+  text-decoration: underline;
+}
+
+/* ------------------- HERO SECTION (UPDATED) ------------------- */
+.hero {
+  text-align: center;
+  padding: 6rem 2rem 4rem;
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: heroFadeIn 1.5s forwards;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  color: #111;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  max-width: 700px;
+  margin: 0 auto;
+  color: #222;
+  line-height: 1.6;
+}
+
+@keyframes heroFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ------------------- DETAILS SECTION ------------------- */
+.details {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.detail {
+  margin-bottom: 3rem;
+  text-align: left;
+  background: rgba(255,255,255,0.05);
+  padding: 2rem;
+  border-radius: 12px;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1s ease;
+}
+
+.detail h3 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  color: #111;
+}
+
+.detail p, .detail a, .detail li {
+  font-size: 1.125rem;
+  color: #222;
+  line-height: 1.6;
+}
+
+.detail a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.detail a:hover {
+  color: #555;
+  text-decoration: underline;
+}
+
+.detail ul {
+  padding-left: 1.25rem;
+  margin-top: 0.5rem;
+}
+
+.detail ul li {
+  margin-bottom: 0.5rem;
+}
+
+/* ------------------- FOOTER ------------------- */
+footer {
+  text-align: center;
+  padding: 2rem;
+  color: #222;
+  z-index: 1;
+  position: relative;
+}
+
+/* ------------------- FADE ANIMATIONS ------------------- */
+.fade-in {
+  animation: fadeIn 1s forwards;
+}
+
+.fade-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1s ease;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ------------------- RESPONSIVE ------------------- */
+@media(max-width: 900px){
+  .hero h1 {
+    font-size: clamp(2rem, 7vw, 3rem);
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .detail {
+    text-align: center;
+  }
+
+  .detail ul {
+    padding-left: 0;
+  }
+}

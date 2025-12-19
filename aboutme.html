@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About – Krystal Coleman</title>
+
+  <!-- About Page Stylesheet -->
+  <link rel="stylesheet" href="aboutme-style.css">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Background Circles -->
+  <div class="polka-container">
+    <div class="polka polka1"></div>
+    <div class="polka polka2"></div>
+    <div class="polka polka3"></div>
+    <div class="polka polka4"></div>
+    <div class="polka polka5"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <h2 class="fade-in-header">About Me</h2>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="projects">Projects</a>
+    </nav>
+  </header>
+
+  <!-- Centered Large Animated Header -->
+  <section class="center-header">
+    <h1 class="animated-header">Get to know me</h1>
+  </section>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Hi, I’m Krystal Coleman</h1>
+      <p>
+        I am a young designer currently studying Industrial Design and Interaction Design at San Jose State University. 
+        I started my journey in UX design and now explore both digital and physical design projects, combining creativity, research, and user-centered thinking.
+      </p>
+    </div>
+  </section>
+
+  <!-- About Details -->
+  <section class="details">
+    <div class="detail fade-on-scroll">
+      <h3>My Design Background</h3>
+      <p>
+        My work began in UX design, giving me a foundation in user research, interface design, and digital interaction. 
+        Today, I focus on Industrial and Interaction design, exploring form, ergonomics, and tactile experiences.
+      </p>
+    </div>
+
+    <div class="detail fade-on-scroll">
+      <h3>Projects & Experience</h3>
+      <p>
+        I’ve worked on several digital and physical projects this year. 
+        One highlight is a website I designed for a spa where I previously worked as an esthetician. 
+        <a href="https://designsbykrystal.github.io/final/index.html#" target="_blank">View Project</a>
+      </p>
+    </div>
+
+    <div class="detail fade-on-scroll">
+      <h3>Contact</h3>
+      <p>If you’d like to collaborate or connect, you can reach me here:</p>
+      <ul>
+        <li>Email: <a href="mailto:Krystalncoleman@gmail.com">Krystalncoleman@gmail.com</a></li>
+        <li>LinkedIn: <a href="https://linkedin.com/in/krystalnicoledesigns" target="_blank">linkedin.com/in/KrystalNicoleDesigns</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Krystal Coleman</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Fade-on-scroll animation for details
+    const faders = document.querySelectorAll('.fade-on-scroll');
+    const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+
+    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('fade-in');
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => appearOnScroll.observe(fader));
+
+    // Header fade-in animation
+    const headerText = document.querySelector('.fade-in-header');
+    window.addEventListener('load', () => {
+      headerText.classList.add('fade-in');
+    });
+
+    // Background circle animation
+    const circles = document.querySelectorAll('.polka');
+    circles.forEach(circle => {
+      const randomX = Math.random() * window.innerWidth;
+      const randomY = Math.random() * window.innerHeight;
+      const randomSpeed = Math.random() * 0.5 + 0.2;
+
+      let posX = randomX;
+      let posY = randomY;
+      let directionX = Math.random() > 0.5 ? 1 : -1;
+      let directionY = Math.random() > 0.5 ? 1 : -1;
+
+      function animateCircle() {
+        posX += directionX * randomSpeed;
+        posY += directionY * randomSpeed;
+
+        if (posX < -200 || posX > window.innerWidth + 200) directionX *= -1;
+        if (posY < -200 || posY > window.innerHeight + 200) directionY *= -1;
+
+        circle.style.transform = `translate(${posX}px, ${posY}px)`;
+        requestAnimationFrame(animateCircle);
+      }
+
+      animateCircle();
+    });
+  </script>
+
+</body>
+</html>
+
+

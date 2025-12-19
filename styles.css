@@ -1,0 +1,331 @@
+* {
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+html, body {
+  width: 100%;
+  margin: 0;
+  padding: 0 2rem;
+}
+
+.logo img {
+  height: 60px;
+  width: auto;
+  display: block;
+}
+
+body {
+  color: #ffffff;
+  background: radial-gradient(
+    circle at top,
+    #a8a8a8 0%,
+    #8f8f8f 45%,
+    #747474 100%
+  );
+  line-height: 1.6;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+body, p, h1, h2, h3, a {
+  color: #ffffff;
+}
+
+p {
+  color: rgba(255,255,255,0.85);
+}
+
+.hero h1 {
+  font-family: 'Inter Tight', sans-serif;
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  max-width: 600px;
+  color: rgba(255,255,255,0.9);
+}
+
+.nav a {
+  color: rgba(255,255,255,0.9);
+  text-decoration: none;
+}
+
+.nav a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem 2rem;
+}
+
+.nav a {
+  margin-left: 1rem;
+  text-decoration: none;
+  color: #111;
+}
+
+/* ------------------- HERO FULL-WIDTH ------------------- */
+/* Hero section banner */
+.hero {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  padding: 4rem 0 6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  /* Existing gradient banner */
+  background: linear-gradient(
+      rgba(255,255,255,0.2),
+      rgba(255,255,255,0)
+    ),
+    radial-gradient(
+      circle at top,
+      #4a4a4a 0%,  
+      #2f2f2f 100% 
+    );
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  z-index: 1;
+  overflow: hidden; /* ensure circles don't overflow */
+}
+
+/* Pulsing circles inside banner */
+.hero::before,
+.hero::after,
+.hero .circle-banner {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1); /* light overlay */
+  animation: pulse 4s ease-in-out infinite;
+}
+
+/* Individual circle positions and sizes */
+.hero::before {
+  width: 250px;
+  height: 250px;
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.hero::after {
+  width: 300px;
+  height: 300px;
+  top: 50%;
+  right: 15%;
+  animation-delay: 1.5s;
+}
+
+.hero .circle-banner {
+  width: 200px;
+  height: 200px;
+  top: 30%;
+  left: 60%;
+  animation-delay: 3s;
+}
+
+.hero-content {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* FULL-WIDTH HERO IMAGES */
+.hero-images {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0; /* images touch */
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+}
+
+.hero-images img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  display: block;
+  border-radius: 0; /* square corners */
+}
+
+/* ------------------- INTRO TEXT ------------------- */
+.intro-text {
+  max-width: 800px;
+  margin: 6rem auto; /* lots of vertical space */
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.intro-text p {
+  font-size: 1.3rem;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 2.5rem;
+}
+
+/* ------------------- INTERACTIVE ELEMENTS ------------------- */
+.interactive-elements {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.cta-button {
+  background-color: #ffffff;
+  color: #222;
+  padding: 0.8rem 1.8rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.cta-button:hover {
+  background-color: #e0e0e0;
+  transform: translateY(-3px);
+}
+
+.cta-button.secondary {
+  background-color: transparent;
+  border: 2px solid #ffffff;
+  color: #ffffff;
+}
+
+.cta-button.secondary:hover {
+  background-color: #ffffff;
+  color: #222;
+}
+
+/* ------------------- PROJECTS ------------------- */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+.project-card {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.project-card a {
+  display: block;
+  text-decoration: none;
+  height: 100%;
+}
+
+.project-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.project-card h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 1rem 1.25rem 0.5rem;
+}
+
+.project-card p {
+  font-size: 0.95rem;
+  margin: 0 1.25rem 1.25rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+.project-card:hover img {
+  transform: scale(1.05);
+}
+
+/* ------------------- FOOTER ------------------- */
+footer {
+  padding: 2rem;
+  font-size: 0.9rem;
+}
+
+/* ------------------- RESPONSIVE ------------------- */
+@media (max-width: 900px) {
+  .hero-images {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-images img {
+    height: 300px;
+  }
+}
+
+@media (max-width: 600px) {
+  .project-card img {
+    height: 180px;
+  }
+}
+
+/* ------------------- ANIMATIONS ------------------- */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Initial states for hero animations */
+.hero-content h1,
+.hero-content p {
+  opacity: 0;
+}
+
+.hero-images img {
+  opacity: 0;
+}
+
+/* Pulse animation */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 0.6;
+  }
+}

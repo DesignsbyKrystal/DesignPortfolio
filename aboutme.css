@@ -1,0 +1,155 @@
+/* ------------------- BODY & COLORS ------------------- */
+body {
+  background: linear-gradient(180deg, #d3d3d3 0%, #7a7a7a 100%);
+  color: #222;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ------------------- POLKA DOTS ------------------- */
+.polka {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  z-index: 0;
+}
+
+.polka1 { width: 1200px; height: 1200px; top: 50px; left: -200px; }
+.polka2 { width: 1000px; height: 1000px; top: 600px; right: -300px; }
+.polka3 { width: 800px; height: 800px; top: 400px; left: 200px; }
+.polka4 { width: 800px; height: 800px; top: 900px; left: -150px; }
+.polka5 { width: 700px; height: 700px; top: 1200px; right: 100px; }
+
+/* ------------------- HEADER ------------------- */
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.project-header h2 {
+  font-size: 2rem;
+  color: #111;
+}
+
+.project-header nav a {
+  margin-left: 1rem;
+  color: #111;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.project-header nav a:hover {
+  text-decoration: underline;
+}
+
+/* ------------------- HERO SECTION ------------------- */
+.project-hero {
+  text-align: center;
+  padding: 4rem 2rem 6rem;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-text h1 {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 800;
+  margin-bottom: 1rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1s ease;
+  color: #111;
+}
+
+.hero-text p {
+  font-size: 1.25rem;
+  margin-bottom: 3rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1s ease;
+  color: #222;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ------------------- DETAILS SECTION ------------------- */
+.project-details {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.detail {
+  margin-bottom: 3rem;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1s ease;
+}
+
+.detail h3 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  color: #111;
+}
+
+.detail p, .detail a {
+  font-size: 1.1rem;
+  color: #222;
+  text-decoration: none;
+}
+
+.detail a:hover {
+  text-decoration: underline;
+}
+
+.detail ul {
+  list-style: none;
+  margin-top: 1rem;
+}
+
+.detail ul li {
+  margin-bottom: 0.5rem;
+}
+
+/* ------------------- FADE ANIMATIONS ------------------- */
+.fade-in {
+  animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1s ease;
+}
+
+/* ------------------- FOOTER ------------------- */
+footer {
+  text-align: center;
+  padding: 2rem;
+  color: #222;
+  z-index: 1;
+  position: relative;
+}
+
+/* ------------------- RESPONSIVE ------------------- */
+@media(max-width: 900px){
+  .hero-text h1 {
+    font-size: clamp(2rem, 7vw, 3rem);
+  }
+
+  .hero-text p {
+    font-size: 1rem;
+  }
+}

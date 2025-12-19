@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Krystal Coleman – UI/UX & Product Designer</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+</head>
+
+<body>
+
+  <header class="nav">
+    <a href="index.html" class="logo">
+      <img src="images1/logo.png" alt="Design logo">
+    </a>
+    <nav>
+      <a href="#projects">Work</a>
+      <a href="aboutme.html">About</a>
+      <a href="assets/resume.pdf" target="_blank">Resume</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- FULL-WIDTH HERO -->
+    <section class="hero">
+
+      <div class="circle-banner circle-1"></div>
+      <div class="circle-banner circle-2"></div>
+      <div class="circle-banner circle-3"></div>
+
+      <div class="hero-content">
+        <h1>UI/UX & Product Designer</h1>
+        <p>I design human-centered digital and physical products and solutions.</p>
+
+        <div class="hero-images">
+          <img src="images1/new trowel2.jpg" alt="Design project 1">
+          <img src="images2/glassware.png" alt="Design project 2">
+          <img src="images1/BAGD logo.png" alt="Design project 3">
+        </div>
+      </div>
+    </section>
+
+    <!-- SPACIOUS INTRO PARAGRAPH WITH INTERACTIVE ELEMENTS -->
+    <section class="intro-text">
+      <p>
+        Design is at the heart of every creation. I focus on balancing function over form with form over function,
+        making thoughtful decisions at each stage to ensure usability and impact. My work
+        prioritizes clarity, purpose, and the human experience, balancing aesthetics with
+        practical problem-solving.
+      </p>
+
+      <div class="interactive-elements">
+        <a href="#projects" class="cta-button">View My Work</a>
+        <a href="aboutme.html" class="cta-button secondary">Learn More About Me</a>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="projects">
+      <article class="project-card">
+        <a href="project-uiux.html">
+          <img src="images1/BAGD cover.png" alt="UI UX Project">
+          <h2>UI/UX Case Study</h2>
+          <p>End-to-end product design from research to final interface.</p>
+        </a>
+      </article>
+
+      <article class="project-card">
+        <a href="project-glass.html">
+          <img src="images2/glasscover.png" alt="Glassware Design">
+          <h2>Glassware Set</h2>
+          <p>Industrial design focused on ergonomics and manufacturing.</p>
+        </a>
+      </article>
+
+      <article class="project-card">
+        <a href="project-garden.html">
+          <img src="images1/toolcover.png" alt="Garden Tools Design">
+          <h2>Garden Tool Set</h2>
+          <p>Human-centered physical product design.</p>
+        </a>
+      </article>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2025 Krystal Coleman</p>
+    <a href="mailto:Krystalncoleman@gmail.com">Krystalncoleman@gmail.com</a>
+    <a href="https://linkedin.com/in/krystalnicoledesigns">LinkedIn</a>
+  </footer>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Hero Text Slide In
+  const heroHeader = document.querySelector('.hero-content h1');
+  const heroParagraph = document.querySelector('.hero-content p');
+  const heroImages = document.querySelectorAll('.hero-images img');
+
+  // Animate hero text
+  heroHeader.style.animation = 'slideInLeft 1s forwards';
+  heroParagraph.style.animation = 'slideInLeft 1s 0.3s forwards';
+
+  // Animate hero images
+  heroImages.forEach((img, index) => {
+    img.style.animation = `fadeIn 1s ${0.5 + index * 0.3}s forwards`;
+  });
+
+  // Fade in projects on scroll
+  const projectCards = document.querySelectorAll('.project-card');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.2 });
+  projectCards.forEach(card => observer.observe(card));
+
+  // Hero banner circles subtle floating motion
+  const bannerCircles = document.querySelectorAll('.hero::before, .hero::after, .hero .circle-banner');
+  
+  bannerCircles.forEach((circle, index) => {
+    // Random initial offset
+    const offsetX = (Math.random() - 0.5) * 20; // px
+    const offsetY = (Math.random() - 0.5) * 20; // px
+    circle.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+
+    // Animate gentle floating
+    let direction = 1;
+    setInterval(() => {
+      const currentTransform = circle.style.transform.match(/translate\(([-\d.]+)px, ([-\d.]+)px\)/);
+      if(currentTransform){
+        let x = parseFloat(currentTransform[1]);
+        let y = parseFloat(currentTransform[2]);
+        if (y > 10) direction = -1;
+        if (y < -10) direction = 1;
+        circle.style.transform = `translate(${x}px, ${y + direction * 0.3}px)`;
+      }
+    }, 50);
+  });
+
+});
+</script>
+
+</body>
+</html>
+  
